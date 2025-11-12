@@ -1,124 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculator</title>
-    <style>
-        /* Basic body styling to center the content */
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9; /* Light grey background */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-
-        /* The main container for the calculator */
-        .calculator-container {
-            background-color: #ffffff;
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-            text-align: center;
-        }
-
-        /* Style for the calculator title */
-        h2 {
-            color: #333;
-            margin-bottom: 20px;
-        }
-
-        /* Common styles for input fields and the dropdown */
-        input[type="number"], select {
-            width: 90%;
-            padding: 12px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-
-        /* Styling for the 'Calculate' button */
-        #btn {
-            width: 95%;
-            padding: 12px;
-            background-color: #007bff; /* A nice blue color */
-            color: white;
-            font-size: 18px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease; /* Smooth transition for hover */
-        }
-
-        /* Hover effect for the button */
-        #btn:hover {
-            background-color: #0056b3; /* A darker blue on hover */
-        }
-
-        /* Styling for the result paragraph */
-        #result {
-            margin-top: 20px;
-            font-size: 24px;
-            font-weight: bold;
-            color: #28a745; /* Green color for the result */
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
 </head>
 <body>
-    <div class = ".calculator-container" >
-    <input type = "number" id = "num1" placeholder="Enter the Number 1:">
-    <input type = "number" id = "num2" placeholder = "Enter the Number 2:">
-    <select id = "operator" >
-        <option value = "+">+</option>
-        <option value = "-">-</option>
-        <option value = "*">*</option>
-        <option value = "/">/</option>
-    </select>
-    <button id = "btn" onclick="calculate()">Calculate</button>
-    <p id = "result" ></p>
-    </div>
-    <script>
-       
-        
-        function calculate(){
-             let num1 = parseFloat(document.getElementById("num1").value);
-              let num2 = parseFloat(document.getElementById("num2").value);
-            let operator = document.getElementById("operator").value;
-            let result ;
-            switch(operator){
-                case '+':
-                    result = num1+num2;
-                    break;
-                case '-':
-                    result = num1 - num2;
-                    break;
-                case '*':
-                    result = num1*num2;
-                    break;
-                case '/':
-                    if(num2 == 0){
-                        result = "CANNOT DIVIDE BY ZERO";
-                    }
-                    else{
-                        result = num1/num2;
+  <input type="number" id="num1" placeholder="Enter first number">
+  <input type="number" id="num2" placeholder="Enter second number">
+  <select id="operator">
+    <option value="+">+</option>
+    <option value="-">-</option>
+    <option value="*">*</option>
+    <option value="/">/</option>
+  </select>
+  <button onclick="calc()">Calculate</button>
+  <p id="result">Result is:</p>
 
-                    }
-                    break;
-                default:
-                    result = "Invalid Operation";
+  <script>
+    function calc() {
+      let num1 = parseFloat(document.getElementById("num1").value);
+      let num2 = parseFloat(document.getElementById("num2").value);
+      let operator = document.getElementById("operator").value;
+      let result;
 
-            }
-            
-            document.getElementById("result").innerText = "RESULT:"+result;
-        }
-        
-        
+      switch (operator) {
+        case '+':
+          result = num1 + num2;
+          break;
+        case '-':
+          result = num1 - num2;
+          break;
+        case '*':
+          result = num1 * num2;
+          break;
+        case '/':
+          result = num2 === 0 ? "Cannot divide by zero!" : num1 / num2;
+          break;
+        default:
+          result = "Invalid operator";
+      }
 
-    </script>
+      document.getElementById("result").innerHTML = "Result is: " + result;
+    }
+  </script>
 </body>
-
 </html>

@@ -203,11 +203,12 @@
 
   <script>
     setTimeout(() => {
-      const p = document.getElementById("preloader");
-      p.style.transition = "opacity .6s ease";
-      p.style.opacity = "0";
-      setTimeout(() => p.remove(), 2600);
-    }, 2000);
+  const p = document.getElementById("preloader");
+  p.style.transition = "opacity .6s ease";
+  p.style.opacity = "0";
+  setTimeout(() => p.remove(), 600);
+}, 3000);
+
 
     /* Time Logic */
     const start = new Date("2022-01-13T00:00:00");

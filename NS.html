@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Will You Marry Me?</title>
+    <title>For My Love Kavishree</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -42,6 +42,13 @@
             margin-bottom: 15px;
             color: #8b4513;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .names {
+            font-size: 2.2rem;
+            color: #e91e63;
+            margin: 10px 0;
+            font-weight: bold;
         }
 
         .subtitle {
@@ -90,6 +97,52 @@
         .days-counter {
             font-size: 1.2rem;
             margin-top: 10px;
+        }
+
+        .photo-section {
+            margin: 30px 0;
+            position: relative;
+        }
+
+        .photo-frame {
+            width: 100%;
+            max-width: 500px;
+            height: 300px;
+            margin: 0 auto;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+            background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .photo-frame::before {
+            content: "";
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            border: 2px dashed rgba(255, 255, 255, 0.5);
+            border-radius: 15px;
+            pointer-events: none;
+        }
+
+        .photo-placeholder {
+            font-size: 5rem;
+            opacity: 0.7;
+        }
+
+        .photo-caption {
+            margin-top: 15px;
+            font-style: italic;
+            color: #8b4513;
+            font-size: 1.1rem;
         }
 
         .proposal-section {
@@ -184,6 +237,15 @@
             opacity: 0.8;
         }
 
+        .love-quote {
+            font-style: italic;
+            margin: 20px 0;
+            padding: 15px;
+            border-left: 3px solid #e91e63;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 0 10px 10px 0;
+        }
+
         /* Animations */
         @keyframes fadeIn {
             from { opacity: 0; }
@@ -217,6 +279,10 @@
                 font-size: 2.2rem;
             }
             
+            .names {
+                font-size: 1.8rem;
+            }
+            
             .subtitle {
                 font-size: 1.1rem;
             }
@@ -233,11 +299,19 @@
             .memory-section, .proposal-section {
                 padding: 20px;
             }
+            
+            .photo-frame {
+                height: 250px;
+            }
         }
 
         @media (max-width: 480px) {
             h1 {
                 font-size: 1.8rem;
+            }
+            
+            .names {
+                font-size: 1.5rem;
             }
             
             .subtitle {
@@ -257,19 +331,28 @@
                 flex-direction: column;
                 align-items: center;
             }
+            
+            .photo-frame {
+                height: 200px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>My Dearest Love <span class="heart">❤️</span></h1>
+            <h1>My Dearest Kavishree <span class="heart">❤️</span></h1>
+            <div class="names">Aditya & Kavishree</div>
             <p class="subtitle">Every day with you is a beautiful chapter in our story</p>
         </div>
         
         <div class="memory-section">
             <h2 class="memory-title">Our Beautiful Journey</h2>
             <p>From the moment we met, my life has been filled with joy, laughter, and love. You've brought so much happiness into my world, and I'm grateful for every moment we've shared.</p>
+            
+            <div class="love-quote">
+                "In your eyes, I found my home. In your heart, I found my love. In your soul, I found my mate."
+            </div>
             
             <div class="date-box">
                 <div class="date-text">January 13, 2022</div>
@@ -279,9 +362,16 @@
             <p>That special day when we committed to each other was the beginning of the most beautiful chapter of my life.</p>
         </div>
         
+        <div class="photo-section">
+            <div class="photo-frame">
+                <img src="ns.jpeg" alt="Aditya and Kavishree holding hands" style="width:100%; height:100%; object-fit:cover;">
+            </div>
+            <p class="photo-caption">Our hands, our hearts, forever connected</p>
+        </div>
+        
         <div class="proposal-section">
             <div class="ring">💍</div>
-            <p class="proposal-text">My love, you are my sunshine, my happiness, and my everything. You've made me the happiest person since January 13, 2022, and I want to spend the rest of my life making you happy too.</p>
+            <p class="proposal-text">My dearest Kavishree, you are my sunshine, my happiness, and my everything. You've made me the happiest person since January 13, 2022, and I want to spend the rest of my life making you happy too.</p>
             <p class="proposal-text">Will you make me the luckiest person in the world and marry me?</p>
             
             <div class="buttons">
@@ -293,7 +383,7 @@
         </div>
         
         <div class="footer">
-            <p>Made with <span class="heart">❤️</span> for the most special person in my life</p>
+            <p>Made with <span class="heart">❤️</span> by Aditya for his forever love, Kavishree</p>
         </div>
     </div>
     
@@ -331,7 +421,7 @@
         // Handle button clicks
         document.getElementById('yesBtn').addEventListener('click', function() {
             const message = document.getElementById('message');
-            message.textContent = "You've made me the happiest person in the world! I can't wait to spend forever with you! 💕";
+            message.textContent = "You've made me the happiest person in the world, Kavishree! I can't wait to spend forever with you! 💕";
             message.style.opacity = 1;
             
             // Create celebration effect

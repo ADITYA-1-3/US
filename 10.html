@@ -1,41 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fetch API Example</title>
-</head>
+<html>
 <body>
   <h2>User List</h2>
-  <button id="fetch-btn">Fetch Users</button>
-  <div id="message"></div>
-  <div id="user-container"></div>
+  <button id="btn">Fetch Users</button>
+  <div id="msg"></div>
+  <div id="users"></div>
 
-  <script>
-    const btn = document.getElementById('fetch-btn');
-    const container = document.getElementById('user-container');
-    const msg = document.getElementById('message');
+<script>
+  btn.onclick = async () => {
+    msg.textContent = "Loading...";
+    users.innerHTML = "";
 
-    async function fetchUsers() {
-      container.innerHTML = '';
-      msg.textContent = 'Loading...';
-      try {
-        const res = await fetch('https://jsonplaceholder.typicode.com/users');
-        if (!res.ok) throw new Error(res.status);
-        const data = await res.json();
-        msg.textContent = '';
-        data.forEach(u => {
-          const card = document.createElement('div');
-          card.innerHTML = `<h3>${u.name}</h3><p>${u.email}</p><p>${u.website}</p>`;
-          container.appendChild(card);
-        });
-      } catch (err) {
-        msg.textContent = `Error: ${err.message}`;
-        msg.style.color = 'red';
-      }
+    try {
+      const data = await (await fetch("https://jsonplaceholder.typicode.com/users")).json();
+      msg.textContent = "";
+
+      users.innerHTML = data.map(u =>
+        `<div>
+           <h3>${u.name}</h3>
+           <p>${u.email}</p>
+           <p>${u.website}</p>
+         </div>`
+      ).join("");
+
+    } catch {
+      msg.textContent = "Error fetching users";
+      msg.style.color = "red";
     }
-
-    btn.addEventListener('click', fetchUsers);
-  </script>
+  };
+</script>
 </body>
 </html>
